@@ -13,9 +13,9 @@
         <div class="logo">
             <a href="{{ url_for('index') }}">PALADINSQUERY</a></div>
         <div class="search">
-            <form action="{{ url_for('index') }}" method="post">
+            <form action="{{ url_for('players') }}" method="post">
                 <div class="form">
-                    <input type="text" name="query" placeholder="Player"/>
+                    <input type="text" name="query" required placeholder="Player"/>
                     <input type="submit" value="Search"/>
                 </div>
             </form>

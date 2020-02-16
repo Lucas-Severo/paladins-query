@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block header %}
+    <link rel="stylesheet" href=" {{ url_for('static', filename='/css/players.css') }} ">
+{% endblock %}
+{% block content %}
+    
+    <div class="content">
+        {% for player in teste%}
+            <div class="player">
+                <a href="#"><p>{{ player["Name"] }}</p>
+                    <p>Id: {{ player["player_id"] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>    
+{% endblock %}
