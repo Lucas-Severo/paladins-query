@@ -29,12 +29,17 @@
             {% else %}
                 {% for index in range(5) %}
                     <div class="champion">
-                        <p>Champion: {{ champions[index]["champion"] }}</p>
-                        <p>Assists: {{ champions[index]["Assists"] }}</p>
-                        <p>Deaths: {{ champions[index]["Deaths"] }}</p>
-                        <p>Kills: {{ champions[index]["Kills"] }}</p>
-                        <p>Wins: {{ champions[index]["Wins"] }}</p>
-                        <p>Losses: {{ champions[index]["Losses"] }}</p>
+                        <div class="champion-img">
+                            <img style="height: 180px" src="https://web2.hirez.com/paladins/champion-icons/{{ champions[index]['champion']|lower }}.jpg"/>
+                        </div>
+                        <div class="champion-info">
+                            <p>Champion: {{ champions[index]["champion"] }}</p>
+                            <p>Assists: {{ champions[index]["Assists"] }}</p>
+                            <p>Deaths: {{ champions[index]["Deaths"] }}</p>
+                            <p>Kills: {{ champions[index]["Kills"] }}</p>
+                            <p>Wins: {{ champions[index]["Wins"] }}</p>
+                            <p>Losses: {{ champions[index]["Losses"] }}</p>
+                        </div>     
                     </div>
                 {% endfor %}
             {% endif %}
