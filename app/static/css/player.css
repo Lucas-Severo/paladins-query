@@ -1,0 +1,48 @@
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.player-info {
+    width: 20%;
+    height: 200px;
+    border: 1px solid black;
+    margin-right: 2px;
+}
+
+.champions-info {
+    width: 40%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.champion {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-top: 1px solid black;
+}
+
+@media (max-width: 768px) 
+{
+    .content {
+        flex-direction: column;
+    }
+
+    .player-info {
+        width: 100%;
+    }
+
+    .champions-info {
+        width: 100%;
+    }
+    
+}

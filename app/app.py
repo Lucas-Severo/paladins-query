@@ -16,5 +16,15 @@ def players():
     }
     return render_template("players.html", **context)
 
+@app.route("/player/<string:nickname>")
+def player(nickname):
+    teste = [[]]
+    champions = [[]]
+    context = {
+        "info": teste,
+        "champions": champions
+    }
+    return render_template('player.html', **context)
+
 if __name__ == '__main__':
     app.run()

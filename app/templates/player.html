@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/player.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="player-info">
+            <p class="title">Player information</p>
+            <p>Nickname: {{ info[0]["hz_player_name"] }}</p>
+            <p>Region: {{ info[0]["Region"] }}</p>
+            <p class="title">Matches</p>
+            <p>Wins: {{ info[0]["Wins"] }}</p>
+            <p>Losses: {{ info[0]["Losses"] }}</p>
+        </div>
+
+        <div class="champions-info">
+            <p class="title">Most played champions</p>
+            {% if champions|count < 5 %}
+                {% for champion in champions %}
+                    <div class="champion">
+                        <p>{{ champion["champion"] }}</p>
+                        <p>Assists: {{ champion["Assists"] }}</p>
+                        <p>Deaths: {{ champion["Deaths"] }}</p>
+                        <p>Kills: {{ champion["Kills"] }}</p>
+                        <p>Wins: {{ champion["Wins"] }}</p>
+                        <p>Losses: {{ champion["Losses"] }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for index in range(5) %}
+                    <div class="champion">
+                        <p>Champion: {{ champions[index]["champion"] }}</p>
+                        <p>Assists: {{ champions[index]["Assists"] }}</p>
+                        <p>Deaths: {{ champions[index]["Deaths"] }}</p>
+                        <p>Kills: {{ champions[index]["Kills"] }}</p>
+                        <p>Wins: {{ champions[index]["Wins"] }}</p>
+                        <p>Losses: {{ champions[index]["Losses"] }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
