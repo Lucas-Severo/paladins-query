@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import requests 
 
 app = Flask(__name__)
 
@@ -9,22 +10,22 @@ def index():
 @app.route("/players", methods=["POST"])
 def players():
     nickname = request.form["query"]
-    teste = []
+    response = requests.get(f"https://api-paladins.herokuapp.com/searchplayers/{nickname}")
     context = {
         "nickname": nickname,
-        "teste": teste
+        "players": response.json()
     }
     return render_template("players.html", **context)
 
 @app.route("/player/<string:nickname>")
 def player(nickname):
-    teste = [[]]
-    champions = [[]]
+    player_info = requests.get(f"https://api-paladins.herokuapp.com/getplayer/{nickname}")
+    champions = requests.get(f"https://api-paladins.herokuapp.com/getchampions/{nickname}")
     context = {
-        "info": teste,
-        "champions": champions
+        "info": player_info.json(),
+        "champions": champions.json()
     }
     return render_template('player.html', **context)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host="0.0.0.0")

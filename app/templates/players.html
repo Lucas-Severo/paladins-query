@@ -5,9 +5,9 @@
 {% block content %}
     
     <div class="content">
-        {% for player in teste%}
+        {% for player in players%}
             <div class="player">
-                <a href="#"><p>{{ player["Name"] }}</p>
+                <a href="{{ url_for('player', nickname=player['Name']) }}"><p>{{ player["Name"] }}</p>
                     <p>Id: {{ player["player_id"] }}</p>
                 </a>
             </div>
