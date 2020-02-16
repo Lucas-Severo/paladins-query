@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">PALADINSQUERY</a></div>
+        <div class="search">
+            <form action="{{ url_for('index') }}" method="post">
+                <div class="form">
+                    <input type="text" name="query" placeholder="Player"/>
+                    <input type="submit" value="Search"/>
+                </div>
+            </form>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
